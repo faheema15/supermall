@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supermall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/icon.png">
+  </head>
+  <body>
+    <header>
+      <nav class="section__container nav__container">
+          <div class="nav__logo">Supermall</div>
+      </nav>
+    </header>
+
+    <div class="fwrapper">
+      <div class="wrapper">
+        <div class="title">
+          <select id="loginType" style="color: white; background-color: #CC5500; font-size: larger;">
+            <option value="admin">Supermall Admin login</option>
+            <option value="user">Supermall User login</option>
+          </select>
+        </div>
+
+        <form id="loginForm" onsubmit="return handleLogin(event);">
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" placeholder="Username" required />
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required />
+          </div>
+          <div class="row button">
+            <input type="submit" value="Login" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function handleLogin(event) {
+        event.preventDefault(); // Prevent form from submitting the traditional way
+
+        const loginType = document.getElementById('loginType').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Check if username and password are entered
+        if (username && password) {
+          // Redirect based on login type
+          if (loginType === 'admin') {
+            window.location.href = 'admin.html';
+          } else if (loginType === 'user') {
+            window.location.href = 'user.html';
+          }
+        } else {
+          alert("Please enter both username and password.");
+        }
+      }
+    </script>
+  </body>
+</html>

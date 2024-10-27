@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  header {
+      background-image: linear-gradient(
+          to right,
+          rgb(204, 85, 0),  
+          rgb(255, 127, 80)
+      ),
+      url("assets/header.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .nav__container {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav__logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+
+.fwrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 1px;
+    overflow: hidden;
+}
+.wrapper {
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 450px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title {
+  height: 70px;
+  background: #CC5500;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper form {
+  padding: 25px 35px;
+}
+
+.wrapper form .row {
+  height: 60px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.wrapper form .row input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 70px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+form .row input:focus {
+  border-color: #CC5500;
+}
+
+form .row input::placeholder {
+  color: #999;
+}
+
+.wrapper form .row i {
+  position: absolute;
+  width: 55px;
+  height: 100%;
+  color: #fff;
+  font-size: 22px;
+  background: #CC5500;
+  border: 1px solid #CC5500;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper form .pass {
+  margin-top: 12px;
+}
+
+.wrapper form .pass a {
+  color: #CC5500;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.wrapper form .pass a:hover {
+  text-decoration: underline;
+}
+
+.wrapper form .button input {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #CC5500;
+  border: 1px solid #CC5500;
+  cursor: pointer;
+}
+
+form .button input:hover {
+  background: #C04000;
+}
+
+.wrapper form .signup-link {
+  text-align: center;
+  margin-top: 45px;
+  font-size: 17px;
+}
+
+.wrapper form .signup-link a {
+  color: #CC5500;
+  text-decoration: none;
+}
+
+.nav__log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  font-weight: 700;
+  color: #ffffff;
+  gap: 22rem; /* Adjust spacing between texts as needed */
+}
+
+.nav__log h5 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+#shops {
+  padding: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #CC5500;
+}
+
+#categories {
+  padding: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #CC5500;
+}
+
+#orders {
+  padding: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #CC5500;
+}
+
+#placeOrder {
+  padding: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #CC5500;
+}
+
+#orderForm {
+  padding: 5px;
+  color: #CC5500;
+}
+
+#pobtn {
+  background-color: #CC5500; 
+  color: white; 
+  border-color: #C04000; 
+  display: block; 
+  margin: 0 auto; 
+  margin-top: 5px;
+  margin-top: 15px;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+#adbtn {
+  background-color: #C04000; 
+  color: white; 
+  border-color: #CC5500; 
+  height: 40px;
+  width: 120px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.usshopbutton {
+  background-color: #C04000; 
+  color: white; 
+  border-color: #CC5500; 
+  height: 80px;
+  width: 120px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+th {
+  background-color: #C04000;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+.logout-button {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it below the icon */
+    left: 0px; /* Adjust to add space from the left */
+    top: 30px; /* Adjust the vertical position */
+    background-color: #357ef4; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 5px 10px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for button */
+    transition: background-color 0.3s; /* Smooth transition */
+}

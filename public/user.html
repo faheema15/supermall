@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuperMall | User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/icon.png">
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCybJfh8n4YSNxLJBklHY4fz4NdUvfGRP0",
+  authDomain: "supermall-bf14a.firebaseapp.com",
+  projectId: "supermall-bf14a",
+  storageBucket: "supermall-bf14a.appspot.com",
+  messagingSenderId: "261748319987",
+  appId: "1:261748319987:web:6d1e6816013d92d958b986",
+  measurementId: "G-3G4V4SNVF0"
+    };
+  
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+</head>
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__log">Supermall
+                <h5>User Dashboard</h5>
+            </div>
+            <div class="logout-container">
+                <a href="index.html" class="logout-icon" >
+                    <i class="fas fa-sign-out-alt" style="color: white;"></i>
+                </a>
+            </div>
+        </nav>
+      </header>
+    
+    
+    <!-- View Shops -->
+    <section id="shops">
+        <h2>Available Shops</h2>
+        <div class="uslist">
+            <button class="usshopbutton">Tech Haven</button>
+            <button class="usshopbutton">Fasion Hub</button>
+            <button class="usshopbutton">Gadget World</button>
+            <button class="usshopbutton">Book Store</button>
+            <button class="usshopbutton">Home Essentials</button>
+            <button class="usshopbutton">Toy Kingdom</button>
+        </div>
+        <div id="shopList"></div>
+    </section>
+    
+    <!-- Place Order -->
+    <section id="placeOrder">
+        <h2>Place an Order</h2>
+        <form id="orderForm">
+            <input type="text" id="productid" placeholder="Product ID" required><br>
+            <input type="number" id="quantity" placeholder="Quantity" required><br>
+            <input type="text" id="shopid" placeholder="Shop ID" required><br>
+            <input type="number" id="totalprice" placeholder="Total Price" required><br>
+            <button type="submit" id="pobtn">Place Order</button>
+        </form>
+    </section>
+
+        <!-- View Categories -->
+        <section id="categories">
+            <h2>Categories</h2>
+            <div class="uslist">
+                <button class="usshopbutton">Clothing<br>Apparel and accessories</button>
+                <button class="usshopbutton">Accessories<br>Gadgets and add-ons</button>
+                <button class="usshopbutton">Books<br>Various genres of books</button>
+                <button class="usshopbutton">Electronics<br>All electronic items</button>
+                <button class="usshopbutton">Home goods<br>Home and kitchen essentials</button>
+                <button class="usshopbutton">Toys<br>Children's toys and games</button>
+                
+                
+            </div>
+        </section>
+
+    <script>
+        // Load Shops
+        function loadShops() {
+            db.collection("shops").get().then((querySnapshot) => {
+                const shopList = document.getElementById("shopList");
+                shopList.innerHTML = '';
+                querySnapshot.forEach((doc) => {
+                    const shop = doc.data();
+                    shopList.innerHTML += `<div>${shop.name} - ${shop.category} - ${shop.loc}</div>`;
+                });
+            });
+        }
+
+        // Load Categories
+        function loadCategories() {
+            db.collection("categories").get().then((querySnapshot) => {
+                const categoryList = document.getElementById("categoryList");
+                categoryList.innerHTML = '';
+                querySnapshot.forEach((doc) => {
+                    const category = doc.data();
+                    categoryList.innerHTML += `<div>${category.categoryname} - Floor: ${category.floor}</div>`;
+                });
+            });
+        }
+
+        // Place Order
+        document.getElementById("orderForm").onsubmit = function(e) {
+            e.preventDefault();
+            const productid = document.getElementById("productid").value;
+            const quantity = document.getElementById("quantity").value;
+            const shopid = document.getElementById("shopid").value;
+            const totalprice = document.getElementById("totalprice").value;
+
+            db.collection("orders").add({
+                orderdate: new Date(),
+                productid: productid,
+                quantity: quantity,
+                shopid: shopid,
+                status: "Pending",
+                totalprice: totalprice,
+                userid: "USER_ID" // Replace with dynamic user ID
+            }).then(() => {
+                alert("Order placed successfully");
+                document.getElementById("orderForm").reset();
+            });
+        };
+
+        // Load data on page load
+        window.onload = function() {
+            loadShops();
+            loadCategories();
+        };
+    </script>
+</body>
+</html>
